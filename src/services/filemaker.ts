@@ -14,10 +14,7 @@ const LAYOUTS = {
     SALES: 'SLS_Web',
 };
 
-const isDev = import.meta.env.DEV;
-const baseURL = isDev
-    ? `/fmi/data/vLatest/databases/${FM_DB}`
-    : `https://${FM_HOST}/fmi/data/vLatest/databases/${FM_DB}`;
+const baseURL = `/fmi/data/vLatest/databases/${FM_DB}`;
 
 export const apiClient = axios.create({
     baseURL,
@@ -33,9 +30,7 @@ const getToken = async () => {
 
     const auth = btoa(`${FM_USER}:${FM_PWD}`);
     try {
-        const url = isDev
-            ? `/fmi/data/vLatest/databases/${FM_DB}/sessions`
-            : `https://${FM_HOST}/fmi/data/vLatest/databases/${FM_DB}/sessions`;
+        const url = `/fmi/data/vLatest/databases/${FM_DB}/sessions`;
 
         const response = await axios.post(
             url,

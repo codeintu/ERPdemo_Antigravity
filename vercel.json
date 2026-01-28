@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+        {
+            "source": "/fmi/:path*",
+            "destination": "/api/fmi/:path*"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}
